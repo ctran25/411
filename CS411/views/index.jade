@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  p
+    h2 Enter a city:
+      form(action='doSearch', name='mapSearchForm', method='get')
+        input(type='text', name='searchFor')
+        input(type='submit', name='Search')
+    h2 Login Form
+        form(method='post', action='login')
+            label(for='username') username
+            input#username(type='text', name='username', placeholder='username', required='true')
+            label(for='password') password
+            input#password(type='text', name='password', placeholder='password', required='true')
+            input#login(type='submit', name='login', value='login')
+            a(href='/create', title='create') Create Account
+        a(href='/addpoint', title='addpoint') Add a Point to the Map
+

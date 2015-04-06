@@ -1,0 +1,12 @@
+
+p
+    h2 Create Account
+        form(method='post', action='create')
+            label(for='username') username
+            input#username(type='text', name='username', placeholder='username', required='true')
+            label(for='password') password
+            input#password(type='text', name='password', placeholder='password', required='true')
+            input#create(type='submit', name='create', value='create')
+    p
+        input(id='error', name='error',value=error)
+
