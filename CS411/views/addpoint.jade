@@ -1,13 +1,7 @@
 p
-    h To add a data point please enter your username and password
-    form(method='post', action='point')
+    form#loc(method='post', action='point')
         input#lat(type='hidden', name='lat')
         input#lng(type='hidden', name='lng')
-        label(for='username') username
-        input#username(type='text', name='username', placeholder='username', required='true')
-        label(for='password') password
-        input#password(type='text', name='password', placeholder='password', required='true')
-        input#signup(type='submit', name='add', value='add')
     script.
         if(navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
@@ -15,5 +9,6 @@ p
             var lng = position.coords.longitude;
             document.getElementById("lat").value = lat;
             document.getElementById("lng").value = lng;
+            document.getElementById("loc").submit();
             });
         };

@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
+var session = require('client-sessions');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
@@ -10,7 +11,12 @@ var users = require('./routes/users');
 
 var app = express();
 
-
+app.use(session({
+    cookieName: 'session',
+    secret: 'random_string_goes_here',
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 60 * 1000,
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
